@@ -1,12 +1,14 @@
 <template>
-  <div>
-
-<MainComponent />
+  <div class="RuoterLinks">
+    <RouterView/>
   </div>
-</template>
+ 
+  </template>
+  
 
 <script setup>
-import MainComponent from "./components/MainComponent.vue"
+import {RouterView} from "vue-router";
+
 
 
 </script>
