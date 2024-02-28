@@ -1,5 +1,6 @@
 <template>
       <div>
+
         <p>{{ countdown }}</p>
        
         <button @click="handleStart">Start Quiz</button>
@@ -15,7 +16,7 @@
   const countdown = ref('');
   
   function handleStart() {
-    let timer = 2;
+    let timer = 10;
 
     const intervel = setInterval(() => {
         countdown.value = timer--;
