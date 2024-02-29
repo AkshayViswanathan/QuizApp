@@ -9,17 +9,17 @@
     </div>
 
                         <!-- question  -->
-<div v-else>
+<div v-else class="quizContainer">
 <div>
 
   <div class="navbar">
         
-        <p class="questionCompleted" > question completed: {{ input }}/10</p>
-        <p class="coountdown"> time: {{ timeLine }}</p>
+        <p class="questionCompleted" > Question Completed: {{ input }}/10</p>
+        <p class="countdown"> Time: {{ timeLine }}</p>
     
      </div>
   <div >
-   <h3 class="heading">Question</h3>
+   <h3 class="heading">Questions:</h3>
 
      <div v-for="(apiArray, index) in data.results" :key="index" class="questions">
              {{ apiArray.question }}         
@@ -37,8 +37,8 @@
                 </div>
          </div>
   </div>
- 
-         <button @click="handleOnClick()"> Submit</button>
+  <button @click="handleOnClick()" class="submitButton" > Submit</button>
+
 
 
 </div>
@@ -79,7 +79,7 @@ const router = useRouter();
     timeLine.value--
     if( timeLine.value < 1){
         clearInterval(timeLineCount)
-        alert("Time Out - please try again")
+        alert("Session Time Out")
         router.push("/");
         
     }
@@ -148,28 +148,36 @@ const handleOnClick = () => {
   /* Navbar styles */
   .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 20px;
   }
 
   .questionCompleted {
-    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+ 
   }
 
-  .coountdown {
-    font-size: 16px;
+  .countdown {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
   }
 
   /* Question styles */
   .heading {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin:20px 20px 30px 60px ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   /* Choice container styles */
   .questions {
     margin-bottom: 20px;
+    margin-left: 100px;
+ 
   }
 
   /* Choice styles */
@@ -196,4 +204,21 @@ const handleOnClick = () => {
   button:hover {
     background-color: #0056b3;
   }
+
+
+  .quizContainer{
+    
+    text-align: left;
+    background-image: url('https://png.pngtree.com/background/20230414/original/pngtree-abstract-pastel-watercolor-background-on-paper-picture-image_2425472.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+.quizContainer{
+  height: 1400px;
+}
+
+
 </style>
