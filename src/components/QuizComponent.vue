@@ -1,11 +1,12 @@
 <template>
                       <!-- loading state -->
-    <div class="loading" v-if="loading">
-        <looping-rhombuses-spinner
+    <div v-if="loading" >
+      <div class="loadinganimation"> <looping-rhombuses-spinner
   :animation-duration="2500"
   :rhombus-size="15"
   color="#ff1d5e"
-/>
+/></div>
+        
     </div>
 
                         <!-- question  -->
@@ -138,11 +139,18 @@ const handleOnClick = () => {
 };
 </script>
 
-<style>
+<style scoped>
   /* Loading state */
-  .loading {
-    text-align: center;
+  /* .loading {
+   
+  } */
+
+  .loadinganimation{
+ align-items: center;
     margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
   }
 
   /* Navbar styles */
@@ -220,5 +228,8 @@ const handleOnClick = () => {
   height: 1400px;
 }
 
+button{
+  margin-left: 50%;
+}
 
 </style>
